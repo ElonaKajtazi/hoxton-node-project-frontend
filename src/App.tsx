@@ -11,6 +11,7 @@ import { Home } from "./pages/home";
 import { Category } from "./pages/category";
 import { Book } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
+import { SignUp } from "./pages/SignUp";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/category" element={<Category />} />
         <Route path="/book" element={<Book />} />
+        <Route path="sign-up" element={<SignUp />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       </BrowserRouter>
