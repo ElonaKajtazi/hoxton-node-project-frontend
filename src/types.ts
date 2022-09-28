@@ -1,3 +1,8 @@
+export type Data = {
+  user: User;
+  token: string;
+};
+
 export type Book = {
   id: number;
   title: string;
