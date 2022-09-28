@@ -1,0 +1,43 @@
+.form-page {
+  text-align: center;
+
+  display: grid;
+  height: 92vh;
+  place-content: center;
+  background-image: url(https://i.pinimg.com/736x/41/71/44/4171449ab62bcdc64872ed4b0b9edf64.jpg);
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+
+}
+.form {
+  display: grid;
+  gap: 1rem;
+  justify-content: left;
+  padding: 2rem;
+  border: 1px solid #1976d2;
+  border-radius: 10px;
+  backdrop-filter: sepia(50%);
+}
+.form-title {
+  font-size: 1.2rem;
+}
+label {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0.5rem;
+  text-align: left;
+}
+.text-input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  transition: 0.5s;
+
+  outline: none;
+}
+.text-input:focus {
+  border: 2px solid #1976d2;
+}
+button {
+    all: unset;
+}
