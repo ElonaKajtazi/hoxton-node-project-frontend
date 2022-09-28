@@ -1,17 +1,9 @@
-import { useState } from "react";
+import { Data } from "../types";
 
-
-export function SignUp() {
-  const [currentUser, setCurrentUser] = useState(null);
-  function signIn(data) {
-    setCurrentUser(data.user);
-    localStorage.token = data.token;
-  }
-
-  function signOut() {
-    setCurrentUser(null);
-    localStorage.removeItem("token");
-  }
+type Props = {
+  signIn: (data: Data) => void;
+};
+export function SignUp({ signIn }: Props) {
   return (
     <form
       onSubmit={(e) => {

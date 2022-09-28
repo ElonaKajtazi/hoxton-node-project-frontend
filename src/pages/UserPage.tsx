@@ -8,7 +8,7 @@ export function UserPage({ signIn }) {
     <>
       <Header />
       {page === 0 ? <SignIn signIn={signIn} setPage={setPage} /> : null}
-      {page === 1 ? <SignUp  /> : null}
+      {page === 1 ? <SignUp  signIn={signIn}/> : null}
 
     </>
   );
