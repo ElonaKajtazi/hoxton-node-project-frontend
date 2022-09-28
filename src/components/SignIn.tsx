@@ -1,4 +1,6 @@
-
+type Props = {
+  signIn: () => void
+}
 export function SignIn({ signIn, setPage }) {
   return (
     <>
