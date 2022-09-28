@@ -1,13 +1,16 @@
 import { Data } from "../types";
 import "../form.css";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 type Props = {
   signIn: (data: Data) => void;
 };
 export function Register({ signIn }: Props) {
   return (
+
     <div className="form-page">
+     
       <form
         className="form"
         onSubmit={(e) => {
