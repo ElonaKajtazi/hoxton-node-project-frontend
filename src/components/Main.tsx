@@ -1,15 +1,25 @@
-export function Main(){
-    return (
-        const [books, setBooks] = useState<Product[]>([]);
+import { useEffect, useState } from "react";
+import { Book } from "../types";
 
-        function getDatafromServer() {
-          fetch("http://localhost:3001/products")
-            .then((resp) => resp.json())
-            .then((data) => setProducts(data));
-        }
-      
-        useEffect(() => {
-          getDatafromServer();
-        }, []);
-    )
+export function Main() {
+  const [books, setBooks] = useState<Book[]>([]);
+  function getDatafromServer() {
+    fetch("http://localhost:4444/books")
+      .then((resp) => resp.json())
+      .then((data) => setBooks(data));
+  }
+
+  useEffect(() => {
+    getDatafromServer();
+  }, []);
+  return (
+    <div className="home-main">
+      {books.map((book) => (
+        <div className="singleBook" key={book.id}>
+          <img className="book-img" src={book.image} />
+          <h2 className="book-title">{book.title}</h2>
+        </div>
+      ))}
+    </div>
+  );
 }
