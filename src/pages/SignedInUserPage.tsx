@@ -38,8 +38,9 @@ export function SignedInUserPage({ currentUser, signOut }: Props) {
       </div>
       <div>
         <ul>
+          Bought books:
           {currentUser.boughtBooks.map((boughtBook) => (
-            <li>{boughtBook.id}</li>
+            <li>{boughtBook.book.title}</li>
           ))}
         </ul>
       </div>
