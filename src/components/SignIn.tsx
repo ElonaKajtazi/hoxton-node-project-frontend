@@ -1,7 +1,10 @@
+import { Data } from "../types";
+
 type Props = {
-  signIn: () => void
-}
-export function SignIn({ signIn, setPage }) {
+  signIn: (data: Data) => void;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+};
+export function SignIn({ signIn, setPage }: Props) {
   return (
     <>
       <form
