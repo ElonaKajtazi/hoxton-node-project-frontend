@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Box,
   Button,
   IconButton,
   Link,
@@ -11,10 +12,11 @@ import AutoStoriesSharpIcon from "@mui/icons-material/AutoStoriesSharp";
 import ShoppingCartCheckoutSharpIcon from "@mui/icons-material/ShoppingCartCheckoutSharp";
 // import { SearchBar } from "./SearchBar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import "../App.css";
 
 export function NavBar() {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <IconButton size="large" edge="start" color="inherit" aria-label="logo">
           <AutoStoriesSharpIcon />
@@ -22,7 +24,8 @@ export function NavBar() {
         <Typography variant="h5" component="div" sx={{ flexGrow: 0.2 }}>
           BookStore
         </Typography>
-
+     
+        <Box px={{xs:4}}>
         <Stack
           direction="row"
           justifyContent="space-evenly"
@@ -35,15 +38,19 @@ export function NavBar() {
           <Button color="inherit">Novel</Button>
           <Button color="inherit">Youg Adults</Button>
         </Stack>
+        </Box>
         {/* <SearchBar/> */}
-
+<Box px={{xs:4}}>
         <IconButton size="large" edge="end" color="inherit" aria-label="logo">
           <ShoppingCartCheckoutSharpIcon />
         </IconButton>
+        </Box>
+        <Box px={{xs:4}}>
 
         <IconButton size="large" edge="end" color="inherit" aria-label="logo">
           <AccountCircleIcon />
         </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );
