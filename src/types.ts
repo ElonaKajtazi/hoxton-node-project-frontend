@@ -13,7 +13,7 @@ export type Book = {
   categories: Category[];
   authorId: number;
   author: Author;
-  cart: CartItem;
+  cart: CartItem[];
   boughtBooks: BoughtBook[];
 };
 
@@ -23,7 +23,7 @@ export type User = {
   email: String;
   password: String;
   balance: number;
-  avatar: String;
+  avatar: string;
   cart: CartItem[];
   boughtBooks: BoughtBook[];
 };
@@ -40,7 +40,7 @@ export type CartItem = {
 export type BoughtBook = {
   id: number;
   user: User;
-  book: Book;
+  book: Book[];
   userId: number;
   bookId: number;
 };
