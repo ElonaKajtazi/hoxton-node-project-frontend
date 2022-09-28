@@ -18,10 +18,10 @@ export function NavBar() {
   return (
     <AppBar position="sticky">
       <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="logo">
+        <IconButton size="large" color="inherit" aria-label="logo" edge="end">
           <AutoStoriesSharpIcon />
         </IconButton>
-        <Typography variant="h5" component="div" sx={{ flexGrow: 0.2 }}>
+        <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
           BookStore
         </Typography>
      
