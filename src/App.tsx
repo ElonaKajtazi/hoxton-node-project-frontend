@@ -11,7 +11,7 @@ import { Home } from "./pages/home";
 import { Category } from "./pages/category";
 import { Book } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
-import { SignUp } from "./pages/SignUp";
+import { SignUp } from "./pages/UserPage";
 
 
 function App() {
