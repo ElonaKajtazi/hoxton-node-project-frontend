@@ -2,6 +2,7 @@ import { AppBar, Button, IconButton, Link, Stack, Toolbar, Typography } from "@m
 import AutoStoriesSharpIcon from '@mui/icons-material/AutoStoriesSharp';
 import ShoppingCartCheckoutSharpIcon from '@mui/icons-material/ShoppingCartCheckoutSharp';
 // import { SearchBar } from "./SearchBar";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export function NavBar () {
     return (
@@ -33,6 +34,10 @@ export function NavBar () {
 
             <IconButton size= "large" edge= "end" color="inherit" aria-label="logo">
                 <ShoppingCartCheckoutSharpIcon/>
+            </IconButton>
+
+            <IconButton size= "large" edge= "end" color="inherit" aria-label="logo">
+                <AccountCircleIcon/>
             </IconButton>
             
         </Toolbar>
