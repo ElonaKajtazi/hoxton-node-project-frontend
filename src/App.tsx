@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   useRoutes,
   BrowserRouter,
-} from "react-router-dom";
+} from "react-router-dom"
 import "./App.css";
 import { Home } from "./pages/home";
 import { Category } from "./pages/category";
