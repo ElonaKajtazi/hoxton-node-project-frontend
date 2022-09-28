@@ -1,7 +1,7 @@
 import { AppBar, Button, IconButton, Link, Stack, Toolbar, Typography } from "@mui/material";
 import AutoStoriesSharpIcon from '@mui/icons-material/AutoStoriesSharp';
 import ShoppingCartCheckoutSharpIcon from '@mui/icons-material/ShoppingCartCheckoutSharp';
-import { SearchBar } from "./SearchBar";
+// import { SearchBar } from "./SearchBar";
 
 export function NavBar () {
     return (
@@ -29,7 +29,7 @@ export function NavBar () {
                 <Button color = 'inherit'>Youg Adults</Button>
                 
             </Stack>
-            <SearchBar/>
+            {/* <SearchBar/> */}
 
             <IconButton size= "large" edge= "end" color="inherit" aria-label="logo">
                 <ShoppingCartCheckoutSharpIcon/>
