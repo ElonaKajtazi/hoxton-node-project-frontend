@@ -1,0 +1,25 @@
+.single-book{
+    /* background-color: red; */
+    height: 91vh;
+    display: grid;
+    place-content: center;
+    padding: 1rem;
+    background-color: rgba(128, 128, 128, 0.097)
+}
+.single-book__details {
+  display: grid;
+  grid-template-columns: auto 500px;
+  gap: 3rem;
+}
+.single-book-detail__side {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-left: 3px solid rgba(0, 0, 0, 0.582);
+    padding-left: 2rem;
+}
+
+.add-to-cart-btn {
+    width: 150px;
+    height: 40px;
+}
