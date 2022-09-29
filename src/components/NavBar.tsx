@@ -46,7 +46,7 @@ export function NavBar() {
           </IconButton>
         </Box>
         <Box px={{ xs: 4 }}>
-          <Link to="/userPage">
+          <Link to="/profile">
             <IconButton
               size="large"
               edge="end"

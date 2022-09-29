@@ -13,29 +13,28 @@ import { Book } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
 import { UserPage } from "./pages/UserPage";
 import { useEffect, useState } from "react";
-import { SignedInUserPage } from "./pages/SignedInUserPage";
+import { ProfilePage } from "./pages/ProfilePage";
 import { Data, User } from "./types";
-
 
 function App() {
   const [currentUser, setCurrentUser] = useState<null | User>(null);
   useEffect(() => {
     if (localStorage.token) {
-      fetch('http://localhost:4444/validate', {
+      fetch("http://localhost:4444/validate", {
         headers: {
-          Authorization: localStorage.token
-        }
+          Authorization: localStorage.token,
+        },
       })
-        .then(resp => resp.json())
-        .then(data => {
+        .then((resp) => resp.json())
+        .then((data) => {
           if (data.errors) {
-            alert(data.errors)
+            alert(data.errors);
           } else {
-            signIn(data)
+            signIn(data);
           }
-        })
+        });
     }
-  }, [])
+  }, []);
   function signIn(data: Data) {
     setCurrentUser(data.user);
     localStorage.token = data.token;
@@ -55,10 +54,10 @@ function App() {
           <Route path="/category" element={<Category />} />
           <Route path="/book" element={<Book />} />
           <Route
-            path="userPage"
+            path="profile"
             element={
               currentUser ? (
-                <SignedInUserPage currentUser={currentUser} signOut={signOut} />
+                <ProfilePage currentUser={currentUser} signOut={signOut} />
               ) : (
                 <UserPage signIn={signIn} />
               )

@@ -1,8 +1,6 @@
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import { Data } from "../types";
-import "../form.css";
-import { Footer } from "./Footer";
-import { useState } from "react";
+import "../styles/form.css";
 
 type Props = {
   signIn: (data: Data) => void;

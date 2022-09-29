@@ -1,0 +1,81 @@
+.profile-page {
+  /* width: 800px; */
+  display: grid;
+  justify-content: center;
+}
+.profile-info {
+  /* border: 0;
+    padding: 0;
+    box-sizing: border-box; */
+
+  display: grid;
+  grid-auto-flow: column;
+
+  padding: 1rem;
+  align-items: center;
+  /* height: 86vh; */
+  /* border: 1px solid black; */
+  /* width: 600px;
+justify-content: center; */
+}
+.avatar {
+  width: 300px;
+}
+.user-info {
+  /* color: red; */
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+  /* align-content: center; */
+}
+
+.user-name {
+  font-size: 1.1rem;
+  /* color: red; */
+}
+.user-email {
+  font-size:  1.1rem;
+}
+.user-balance {
+  font-size: 1.1rem;
+}
+.bought-books {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.5rem;
+
+  padding: 1rem;
+  width: 600px;
+  overflow-x: auto;
+
+  scroll-snap-type: x mandatory;
+  /* place-content: center; */
+  /* place-items: center; */
+}
+.bought-book__cover {
+  height: 200px;
+}
+.bought-book__card {
+  /* border: 1px solid rgba(0, 0, 0, 0.207); */
+  padding: 1rem;
+  display: grid;
+  background-color: rgba(0, 0, 0, 0.044);
+}
+.bought-book__title {
+  font-size: 0.8rem;
+}
+.bought-book__author {
+  font-size: 0.7rem;
+}
+.bought-books__title {
+  text-align: start;
+}
+.books {
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+}
+/*  */

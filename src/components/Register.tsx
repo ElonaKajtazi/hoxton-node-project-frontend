@@ -1,7 +1,6 @@
 import { Data } from "../types";
-import "../form.css";
+import "../styles/form.css";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
 
 type Props = {
   signIn: (data: Data) => void;
