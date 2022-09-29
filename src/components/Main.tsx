@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Book } from "../types";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 export function Main() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -16,10 +17,12 @@ export function Main() {
   return (
     <div className="home-main">
       {books.map((book) => (
-        <div className="singleBook" key={book.id}>
-          <img className="book-img" src={book.image} />
-          <h2 className="book-title">{book.title}</h2>
-        </div>
+        <Link to={`/books/${book.id}`}>
+          <div className="singleBook" key={book.id}>
+            <img className="book-img" src={book.image} />
+            <h2 className="book-title">{book.title}</h2>
+          </div>
+        </Link>
       ))}
     </div>
   );

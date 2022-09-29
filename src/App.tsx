@@ -9,7 +9,7 @@ import {
 import "./App.css";
 import { Home } from "./pages/home";
 import { Category } from "./pages/category";
-import { Book } from "./pages/singleBook";
+import { SingleBook } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
 import { UserPage } from "./pages/UserPage";
 import { useEffect, useState } from "react";
@@ -52,7 +52,7 @@ function App() {
           <Route index element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/category" element={<Category />} />
-          <Route path="/book" element={<Book />} />
+          <Route path="/books/:id" element={<SingleBook />} />
           <Route
             path="profile"
             element={
