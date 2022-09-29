@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 type Props = {
   signIn: (data: Data) => void;
+  setError: React.Dispatch<React.SetStateAction<string[] | null>>;
+  error: string[] | null;
 };
-export function Register({ signIn }: Props) {
+export function Register({ signIn, setError, error }:Props) {
   return (
-
     <div className="form-page">
-     
       <form
         className="form"
         onSubmit={(e) => {
@@ -29,11 +29,13 @@ export function Register({ signIn }: Props) {
             .then((resp) => resp.json())
             .then((data) => {
               if (data.errors) {
-                console.log(data.errors);
-                alert(data.errors);
+                // console.log(data.errors);
+                // alert(data.errors);
+                setError(data.errors);
+                console.log(error)
               } else {
                 signIn(data);
-                console.log(data);
+                
               }
             });
         }}
@@ -66,6 +68,7 @@ export function Register({ signIn }: Props) {
             placeholder="Password"
           />
         </label>
+        {error ? <p className="error">{error}</p>: null}
 
         <Button variant="contained" size="small" type="submit">
           Register

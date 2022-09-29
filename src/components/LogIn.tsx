@@ -2,12 +2,15 @@ import { Button, TextField } from "@mui/material";
 import { Data } from "../types";
 import "../form.css";
 import { Footer } from "./Footer";
+import { useState } from "react";
 
 type Props = {
   signIn: (data: Data) => void;
   setPage: React.Dispatch<React.SetStateAction<number>>;
+  setError: React.Dispatch<React.SetStateAction<string[] | null>>;
+  error: string[] | null;
 };
-export function LogIn({ signIn, setPage }: Props) {
+export function LogIn({ signIn, setPage, setError, error }: Props) {
   return (
     <div className="form-page">
       <form
@@ -27,7 +30,8 @@ export function LogIn({ signIn, setPage }: Props) {
             .then((rsp) => rsp.json())
             .then((data) => {
               if (data.errors) {
-                alert(data.errors);
+                // alert(data.errors);
+                setError(data.errors);
               } else {
                 signIn(data);
               }
@@ -61,6 +65,7 @@ export function LogIn({ signIn, setPage }: Props) {
           Login
         </Button>
         {/* </button> */}
+        {error ? <p className="error">{error}</p> : null}
 
         {/* <button>SIGN IN</button> */}
         <div>

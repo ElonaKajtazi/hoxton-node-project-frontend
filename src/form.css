@@ -41,3 +41,6 @@ label {
 button {
     all: unset;
 }
+.error {
+  color: rgb(191, 0, 0);
+}
