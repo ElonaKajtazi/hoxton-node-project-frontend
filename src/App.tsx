@@ -7,7 +7,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/home";
+import { Home } from "./pages/Home";
 import { Categories } from "./pages/Categories";
 import { SingleBook } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";

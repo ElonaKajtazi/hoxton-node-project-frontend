@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Category } from "../types";
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import { Footer } from "../components/Footer";
 
 export function Categories (){
     const [categories, setCategories] = useState<Category[]>([]);
@@ -23,11 +23,12 @@ export function Categories (){
     {categories.map((category) => (
         <Link to={`/categories/${category.id}`}>
             <div className="category" key={category.id}>
-               <Button size="large" variant="outlined" >{category.name}</Button>
+               <Button size="large" variant="contained" >{category.name}</Button>
             </div>
         </Link>
     ))}
  </div>
+ <Footer/>
        </>
     )
 }

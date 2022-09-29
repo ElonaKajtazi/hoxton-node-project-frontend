@@ -18,13 +18,16 @@ export function NavBar() {
   return (
     <AppBar position="sticky">
       <Toolbar>
+        <Link to={"/home"}>
         <IconButton size="large" color="inherit" aria-label="logo" edge="end">
           <AutoStoriesSharpIcon />
         </IconButton>
+        </Link>
+
         <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
           BookStore
         </Typography>
-
+     
         <Box px={{ xs: 4 }}>
           <Stack
             direction="row"

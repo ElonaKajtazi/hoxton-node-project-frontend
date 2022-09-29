@@ -29,3 +29,30 @@
 a {
   all: unset;
 }
+
+.categories{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+  padding: 5rem;
+  background-color: rgb(206, 206, 198);
+}
+
+
+.category{
+  padding: 2rem;
+}
+
+.authors{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto auto;
+  place-items: center;
+  padding: 5rem;
+  background-color: rgb(206, 206, 198);
+}
+
+.author{
+  padding: 2rem;
+}
