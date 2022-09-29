@@ -1,6 +1,6 @@
+import "../styles/form.css";
 import { Button } from "@mui/material";
 import { Data } from "../types";
-import "../styles/form.css";
 
 type Props = {
   signIn: (data: Data) => void;
@@ -28,7 +28,6 @@ export function LogIn({ signIn, setPage, setError, error }: Props) {
             .then((rsp) => rsp.json())
             .then((data) => {
               if (data.errors) {
-                // alert(data.errors);
                 setError(data.errors);
               } else {
                 signIn(data);
@@ -38,7 +37,6 @@ export function LogIn({ signIn, setPage, setError, error }: Props) {
       >
         <h2 className="form-title">Login Form</h2>
         <label>
-          {/* Email: */}
           <input
             className="text-input"
             type="email"
@@ -46,10 +44,8 @@ export function LogIn({ signIn, setPage, setError, error }: Props) {
             placeholder="Email"
             required
           />
-          {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
         </label>
         <label>
-          {/* Password: */}
           <input
             className="text-input"
             type="password"
@@ -58,14 +54,11 @@ export function LogIn({ signIn, setPage, setError, error }: Props) {
             required
           />
         </label>
-        {/* <button> */}
         <Button variant="contained" size="small" type="submit">
           Login
         </Button>
-        {/* </button> */}
         {error ? <p className="error">{error}</p> : null}
 
-        {/* <button>SIGN IN</button> */}
         <div>
           <Button
             color="secondary"
@@ -76,8 +69,6 @@ export function LogIn({ signIn, setPage, setError, error }: Props) {
           >
             Create Account
           </Button>
-
-          {/* <Button color="secondary">Secondary</Button> */}
         </div>
       </form>
     </div>

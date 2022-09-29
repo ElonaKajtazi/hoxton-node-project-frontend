@@ -54,9 +54,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/authors" element={<Authors />} />
+          <Route path="/home" element={<Home currentUser={currentUser} />} />
+          <Route path="/categories" element={<Categories currentUser={currentUser}/>} />
+          <Route path="/authors" element={<Authors currentUser={currentUser}/>} />
           <Route
             path="/books/:id"
             element={
@@ -104,7 +104,7 @@ function App() {
               currentUser ? (
                 <ProfilePage currentUser={currentUser} signOut={signOut} />
               ) : (
-                <UserPage signIn={signIn} error={error} setError={setError} />
+                <UserPage signIn={signIn} error={error} setError={setError} currentUser={currentUser} />
               )
             }
           />

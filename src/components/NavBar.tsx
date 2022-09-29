@@ -14,20 +14,24 @@ import ShoppingCartCheckoutSharpIcon from "@mui/icons-material/ShoppingCartCheck
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import "../App.css";
 import { Link } from "react-router-dom";
-export function NavBar() {
+import { User } from "../types";
+type Props = {
+  currentUser: User | null;
+};
+export function NavBar({ currentUser }: Props) {
   return (
     <AppBar position="sticky">
       <Toolbar>
         <Link to={"/home"}>
-        <IconButton size="large" color="inherit" aria-label="logo" edge="end">
-          <AutoStoriesSharpIcon />
-        </IconButton>
+          <IconButton size="large" color="inherit" aria-label="logo" edge="end">
+            <AutoStoriesSharpIcon />
+          </IconButton>
         </Link>
 
         <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
           BookStore
         </Typography>
-     
+
         <Box px={{ xs: 4 }}>
           <Stack
             direction="row"
@@ -49,9 +53,16 @@ export function NavBar() {
         </Box>
         {/* <SearchBar/> */}
         <Box px={{ xs: 4 }}>
-          <IconButton size="large" edge="end" color="inherit" aria-label="logo">
-            <ShoppingCartCheckoutSharpIcon />
-          </IconButton>
+          <Link to={currentUser ? "/cart" : "/profile"}>
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              aria-label="logo"
+            >
+              <ShoppingCartCheckoutSharpIcon />
+            </IconButton>
+          </Link>
         </Box>
         <Box px={{ xs: 4 }}>
           <Link to="/profile">

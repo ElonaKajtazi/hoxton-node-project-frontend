@@ -1,13 +1,14 @@
 import "../App.css";
+import { User } from "../types";
 import { NavBar } from "./NavBar";
 
-
-export function Header() {
+type Props = {
+  currentUser: null | User;
+};
+export function Header({ currentUser }: Props) {
   return (
     <header className="header">
-
-      <NavBar />
-
+      <NavBar currentUser={currentUser} />
     </header>
   );
 }
