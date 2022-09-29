@@ -22,7 +22,7 @@ export function Authors (){
  <Header/>
  <div className="authors">
     {authors.map((author) => (
-        <Link to={`/authors/${author.fullName}`}>
+        <Link to={`/authors/${author.fullName}`} key={author.id}>
             <div className="category" key={author.id}>
                <Button size="large" variant="contained" >{author.fullName}</Button>
             </div>

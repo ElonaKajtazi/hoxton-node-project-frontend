@@ -5,7 +5,7 @@ import { Book, CartItem } from "../types";
 import "../styles/single-book.css";
 import { Button } from "@mui/material";
 
-export function SingleBook({ setError, error }) {
+export function SingleBook({ setError, error, currentUser}) {
   const [singleBook, setSingleBook] = useState<null | Book>(null);
   const params = useParams();
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
@@ -17,7 +17,6 @@ export function SingleBook({ setError, error }) {
   }, []);
 
   if (singleBook === null) return <h1>Loadingg</h1>;
-  //   const shortDescription= `${text.slice(0,25) ... }`
   let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <>
@@ -51,43 +50,44 @@ export function SingleBook({ setError, error }) {
                 }}
               >
                 {numbers.map((number) => (
-                  <option value={number}>{number}</option>
+                  <option value={number} key={number}>
+                    {number}
+                  </option>
                 ))}
               </select>
             </label>
-            {/* <Link to={"/cart"}> */}
-            <Button
-              color="secondary"
-              variant="contained"
-              size="small"
-              className="add-to-cart-btn"
-              onClick={() => {
-                fetch(`http://localhost:4444/cartItem`, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    Authorization: localStorage.token,
-                  },
-                  body: JSON.stringify({
-                    bookId: singleBook.id,
-                    quantity: quantity,
-                  }),
-                })
-                  .then((rsp) => rsp.json())
-                  .then((data) => {
-                    if (data.errors) {
-                      setError(data.errors);
-                    } else {
-                      setCartItem(data);
-                    }
-                  });
-              }}
-            >
-              Add to cart
-            </Button>
-            {error ? <p className="error">{error}</p> : null}
-
-            {/* </Link> */}
+            <Link to={currentUser ? "/cart" : "/profile"}>
+              <Button
+                color="secondary"
+                variant="contained"
+                size="small"
+                className="add-to-cart-btn"
+                onClick={() => {
+                  fetch(`http://localhost:4444/cartItem`, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: localStorage.token,
+                    },
+                    body: JSON.stringify({
+                      bookId: singleBook.id,
+                      quantity: quantity,
+                    }),
+                  })
+                    .then((rsp) => rsp.json())
+                    .then((data) => {
+                      if (data.errors) {
+                        setError(data.errors);
+                      } else {
+                        setCartItem(data);
+                      }
+                    });
+                }}
+              >
+                Add to cart
+              </Button>
+              {error ? <p className="error">{error}</p> : null}
+            </Link>
           </div>
         </section>
       </div>

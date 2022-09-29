@@ -1,14 +1,63 @@
 import { NavBar } from "../components/NavBar";
-import { User } from "../types";
+import { CartItem, User } from "../types";
 import "../styles/cart.css";
 import { Button } from "@mui/material";
+import { useEffect, useState } from "react";
 type Props = {
   currentUser: null | User;
 };
 export function Cart({ currentUser, error, setError }) {
-  if (!currentUser) return <h1>Loading</h1>;
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4444/cartitems", {
+      headers: {
+        Authorization: localStorage.token,
+      },
+    })
+      .then((rsp) => rsp.json())
+      .then((data) => setCartItems(data));
+  }, []);
+  if (cartItems.length === 0)
+    return (
+      <>
+        <NavBar />
+        <section className="basket-container">
+          <h2>Your Cart</h2>
+          <ul>
+            <article className="basket-container__item">
+              Your cart is empty!
+            </article>
+          </ul>
+          <div className="buy">
+            <h3>Your total: {0} €</h3>
+            <Button
+              variant="contained"
+              color="success"
+              className="btn"
+              onClick={() => {
+                fetch("http://localhost:4444/buy", {
+                  method: "POST",
+                  headers: {
+                    Authorization: localStorage.token,
+                  },
+                  body: JSON.stringify({}),
+                })
+                  .then((rsp) => rsp.json())
+                  .then((data) => {
+                    if (data.errors) setError(data.errors);
+                  });
+              }}
+            >
+              Buy
+            </Button>
+          </div>
+          {error ? <p className="error">{error}</p> : null}
+        </section>
+      </>
+    );
   let total = 0;
-  for (let item of currentUser.cart) {
+  for (let item of cartItems) {
     total += item.quantity * item.book.price;
   }
   return (
@@ -17,8 +66,8 @@ export function Cart({ currentUser, error, setError }) {
       <section className="basket-container">
         <h2>Your Cart</h2>
         <ul>
-          {currentUser.cart.map((cartItem) => (
-            <li>
+          {cartItems.map((cartItem) => (
+            <li key={cartItem.id}>
               <article className="basket-container__item">
                 <img
                   className="cart-image"
@@ -31,7 +80,20 @@ export function Cart({ currentUser, error, setError }) {
                   <p>Qty: {cartItem.quantity}</p>
                   <p>Price: {cartItem.book.price} €</p>
                 </div>
-                <p></p>
+                <p
+                  onClick={() => {
+                    fetch(`http://localhost:4444/cartitem/${cartItem.id}`, {
+                      method: "DELETE",
+                      headers: {
+                        Authorization: localStorage.token,
+                      },
+                    })
+                      .then((rsp) => rsp.json())
+                      .then((data) => setCartItems(data));
+                  }}
+                >
+                  🗑️
+                </p>
               </article>
             </li>
           ))}
@@ -52,8 +114,7 @@ export function Cart({ currentUser, error, setError }) {
               })
                 .then((rsp) => rsp.json())
                 .then((data) => {
-                  if (data.errors) 
-                  setError(data.errors)
+                  if (data.errors) setError(data.errors);
                 });
             }}
           >
@@ -61,7 +122,6 @@ export function Cart({ currentUser, error, setError }) {
           </Button>
         </div>
         {error ? <p className="error">{error}</p> : null}
-
       </section>
     </>
   );

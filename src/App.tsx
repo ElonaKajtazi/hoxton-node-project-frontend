@@ -7,7 +7,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/home";
 import { Categories } from "./pages/Categories";
 import { SingleBook } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
@@ -59,7 +59,13 @@ function App() {
           <Route path="/authors" element={<Authors />} />
           <Route
             path="/books/:id"
-            element={<SingleBook setError={setError} error={error} />}
+            element={
+              <SingleBook
+                setError={setError}
+                error={error}
+                currentUser={currentUser}
+              />
+            }
           />
           <Route
             path="/cart"
@@ -68,6 +74,26 @@ function App() {
                 currentUser={currentUser}
                 setError={setError}
                 error={error}
+              />
+            }
+          />
+          <Route
+            path="/books/:id"
+            element={
+              <SingleBook
+                error={error}
+                setError={setError}
+                currentUser={currentUser}
+              />
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                currentUser={currentUser}
+                error={error}
+                setError={setError}
               />
             }
           />

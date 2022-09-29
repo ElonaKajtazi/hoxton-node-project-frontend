@@ -4,13 +4,13 @@ type Props = {
   currentUser: User | null;
 };
 export function BoughtBooks({ currentUser }: Props) {
-    if (currentUser === null) return <h1>Loading</h1>;
+  if (currentUser === null) return <h1>Loading</h1>;
   return (
     <div className="books">
       <h3 className="bought-books__title">Bought books:</h3>
       <div className="bought-books">
         {currentUser.boughtBooks.map((boughtBook) => (
-          <div className="bought-book__card">
+          <div className="bought-book__card" key={boughtBook.id}>
             <img
               className="bought-book__cover"
               src={boughtBook.book.image}
