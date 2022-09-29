@@ -7,7 +7,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/home";
+import { Home } from "./pages/Home";
 import { Categories } from "./pages/Categories";
 import { SingleBook } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
@@ -56,7 +56,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/authors" element={<Authors />} />
           <Route path="/books/:id" element={<SingleBook />} />
-          <Route path="/cart" element={<Cart currentUser={currentUser}/>} />
+          <Route path="/cart" element={<Cart currentUser={currentUser} />} />
 
           <Route
             path="profile"
