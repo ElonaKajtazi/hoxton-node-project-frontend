@@ -15,6 +15,7 @@ import { UserPage } from "./pages/UserPage";
 import { useEffect, useState } from "react";
 import { ProfilePage } from "./pages/ProfilePage";
 import { Data, User } from "./types";
+import { Cart } from "./pages/Cart";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<null | User>(null);
@@ -53,6 +54,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/category" element={<Category />} />
           <Route path="/books/:id" element={<SingleBook />} />
+          <Route path="/cart" element={<Cart currentUser={currentUser}/>} />
+
           <Route
             path="profile"
             element={
