@@ -7,14 +7,15 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/home";
-import { Category } from "./pages/category";
+import { Home } from "./pages/Home";
+import { Categories } from "./pages/Categories";
 import { SingleBook } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
 import { UserPage } from "./pages/UserPage";
 import { useEffect, useState } from "react";
 import { ProfilePage } from "./pages/ProfilePage";
 import { Data, User } from "./types";
+import { Authors } from "./pages/Authors";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<null | User>(null);
@@ -51,7 +52,8 @@ function App() {
         <Routes>
           <Route index element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/category" element={<Category />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/authors" element={<Authors />} />
           <Route path="/books/:id" element={<SingleBook />} />
           <Route
             path="profile"
