@@ -79,3 +79,13 @@ justify-content: center; */
   padding: 1rem;
 }
 /*  */
+.info{
+  display: grid;
+  gap: 0.7rem;
+  /* padding: 1rem */
+
+}
+.info button {
+  width: 100px;
+
+}
