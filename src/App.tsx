@@ -7,7 +7,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/home";
 import { Categories } from "./pages/Categories";
 import { SingleBook } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
@@ -15,11 +15,8 @@ import { UserPage } from "./pages/UserPage";
 import { useEffect, useState } from "react";
 import { ProfilePage } from "./pages/ProfilePage";
 import { Data, User } from "./types";
-<<<<<<< HEAD
 import { Cart } from "./pages/Cart";
-=======
 import { Authors } from "./pages/Authors";
->>>>>>> c90b392216a7ad97e92d38dbd958e07b7cd5fab2
 
 function App() {
   const [currentUser, setCurrentUser] = useState<null | User>(null);

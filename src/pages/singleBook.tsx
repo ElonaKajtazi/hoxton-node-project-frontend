@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { NavBar } from "../components/NavBar";
 import { Book, CartItem } from "../types";
 import "../styles/single-book.css";
@@ -43,42 +43,43 @@ export function SingleBook() {
             <h5 className="price">Price: {singleBook.price}€</h5>
             <label htmlFor="quantity">
               Chose quantity:
-            <select
-              name="quantity"
-              onChange={(e) => {
-                setQuantity(Number(e.target.value));
-                console.log(quantity);
-              }}
-            >
-              {numbers.map((number) => (
-                <option value={number}>{number}</option>
-              ))}
-            </select>
+              <select
+                name="quantity"
+                onChange={(e) => {
+                  setQuantity(Number(e.target.value));
+                  console.log(quantity);
+                }}
+              >
+                {numbers.map((number) => (
+                  <option value={number}>{number}</option>
+                ))}
+              </select>
             </label>
-
-            <Button
-              color="secondary"
-              variant="contained"
-              size="small"
-              className="add-to-cart-btn"
-              onClick={() => {
-                fetch(`http://localhost:4444/cartItem`, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    Authorization: localStorage.token,
-                  },
-                  body: JSON.stringify({
-                    bookId: singleBook.id,
-                    quantity: quantity,
-                  }),
-                })
-                  .then((rsp) => rsp.json())
-                  .then((newCartItem) => console.log(newCartItem));
-              }}
-            >
-              Add to cart
-            </Button>
+            <Link to={"/cart"}>
+              <Button
+                color="secondary"
+                variant="contained"
+                size="small"
+                className="add-to-cart-btn"
+                onClick={() => {
+                  fetch(`http://localhost:4444/cartItem`, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: localStorage.token,
+                    },
+                    body: JSON.stringify({
+                      bookId: singleBook.id,
+                      quantity: quantity,
+                    }),
+                  })
+                    .then((rsp) => rsp.json())
+                    .then((newCartItem) => console.log(newCartItem));
+                }}
+              >
+                Add to cart
+              </Button>
+            </Link>
           </div>
         </section>
       </div>
