@@ -32,12 +32,21 @@
   padding-bottom: 2rem;
   border-bottom: 1px solid grey;
 }
+.buy {
+  display: grid;
+  grid-auto-flow: column;
+  margin-top: 2rem;
+  justify-content: space-between;
+}
 
-.basket-container h3 {
+/* .basket-container h3 {
   margin-top: 2rem;
   margin-right: 2rem;
   text-align: right;
-  /* color: red */
+
+} */
+.basket-container button {
+  width: 100px;
 }
 
 .basket-container__item {

@@ -7,9 +7,8 @@ import { Data } from "../types";
 type Props = {
   signIn: (data: Data) => void;
 };
-export function UserPage({ signIn}: Props) {
+export function UserPage({ signIn, error, setError}) {
   const [page, setPage] = useState(0);
-  const [error, setError] = useState<null | Array<string>>(null);
 
   return (
     <>

@@ -20,6 +20,8 @@ import { Authors } from "./pages/Authors";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<null | User>(null);
+  const [error, setError] = useState<null | Array<string>>(null);
+
   useEffect(() => {
     if (localStorage.token) {
       fetch("http://localhost:4444/validate", {
@@ -55,8 +57,20 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/authors" element={<Authors />} />
-          <Route path="/books/:id" element={<SingleBook />} />
-          <Route path="/cart" element={<Cart currentUser={currentUser}/>} />
+          <Route
+            path="/books/:id"
+            element={<SingleBook setError={setError} error={error} />}
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                currentUser={currentUser}
+                setError={setError}
+                error={error}
+              />
+            }
+          />
 
           <Route
             path="profile"
@@ -64,7 +78,7 @@ function App() {
               currentUser ? (
                 <ProfilePage currentUser={currentUser} signOut={signOut} />
               ) : (
-                <UserPage signIn={signIn} />
+                <UserPage signIn={signIn} error={error} setError={setError} />
               )
             }
           />
