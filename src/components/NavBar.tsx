@@ -32,11 +32,16 @@ export function NavBar() {
             alignItems="center"
             spacing={7}
           >
-            <Button color="inherit">Classics</Button>
-            <Button color="inherit">Romance</Button>
-            <Button color="inherit">Poetry</Button>
-            <Button color="inherit">Novel</Button>
-            <Button color="inherit">Youg Adults</Button>
+            <Link to={"/home"}>
+              <Button color="inherit">HOME</Button>
+            </Link>
+
+            <Link to={"/categories"}>
+              <Button color="inherit">CATEGORIES</Button>
+            </Link>
+            <Link to={"/authors"}>
+              <Button color="inherit">AUTHORS</Button>
+            </Link>
           </Stack>
         </Box>
         {/* <SearchBar/> */}
