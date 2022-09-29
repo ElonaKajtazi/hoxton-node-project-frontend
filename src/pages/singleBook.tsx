@@ -9,6 +9,7 @@ export function SingleBook() {
   const [singleBook, setSingleBook] = useState<null | Book>(null);
   const params = useParams();
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
+  const [quantity, setQuantity] = useState<Number>(1);
   useEffect(() => {
     fetch(`http://localhost:4444/books/${params.id}`)
       .then((rsp) => rsp.json())
@@ -17,7 +18,7 @@ export function SingleBook() {
 
   if (singleBook === null) return <h1>Loadingg</h1>;
   //   const shortDescription= `${text.slice(0,25) ... }`
- 
+  let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <>
       <NavBar />
@@ -40,6 +41,20 @@ export function SingleBook() {
             )}...`}</p>
             <h5 className="in-tock">In stock : {singleBook.inStock}</h5>
             <h5 className="price">Price: {singleBook.price}€</h5>
+            <label htmlFor="quantity">
+              Chose quantity:
+            <select
+              name="quantity"
+              onChange={(e) => {
+                setQuantity(Number(e.target.value));
+                console.log(quantity);
+              }}
+            >
+              {numbers.map((number) => (
+                <option value={number}>{number}</option>
+              ))}
+            </select>
+            </label>
 
             <Button
               color="secondary"
@@ -55,11 +70,11 @@ export function SingleBook() {
                   },
                   body: JSON.stringify({
                     bookId: singleBook.id,
+                    quantity: quantity,
                   }),
                 })
                   .then((rsp) => rsp.json())
-                  .then(newCartItem => setCartItem(newCartItem));
-                  
+                  .then((newCartItem) => console.log(newCartItem));
               }}
             >
               Add to cart
