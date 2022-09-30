@@ -55,6 +55,13 @@ a {
   padding: 1rem 0rem;
   background-color: rgb(206, 206, 198);
 }
+.categories-books {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+  padding: 6rem;
+}
 
 
 .category{
