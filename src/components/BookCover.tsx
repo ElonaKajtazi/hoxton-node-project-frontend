@@ -10,7 +10,7 @@ export function BookCover({ book }: Props) {
       <div className="singleBook" key={book.id}>
         <div className="book">
         <img className="book-img" src={book.image} />
-        <h3 className="book-title">{book.title}</h3>
+        <h3 className="book-title">{`${book.title.slice(0,20)}`}</h3>
         </div>
       </div>
     </Link>

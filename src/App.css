@@ -132,6 +132,9 @@ place-content: center;
   padding-top: 10px;
   color: rgb(103, 100, 100) ;
   transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .book-title:hover {
