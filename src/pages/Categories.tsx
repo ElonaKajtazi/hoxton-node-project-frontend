@@ -20,20 +20,24 @@ export function Categories({ currentUser }: Props) {
     getDatafromServer();
   }, []);
   return (
-    <>
+    <div className="categories-page">
       <Header currentUser={currentUser} />
       <div className="categories">
         {categories.map((category) => (
           <Link to={`/categories/${category.id}`}>
             <div className="category" key={category.id}>
-              <Button size="large" variant="contained">
+              <Button size="small" variant="contained">
                 {category.name}
               </Button>
             </div>
           </Link>
         ))}
+    
       </div>
+      <div className="categories-books">
+            
+            </div>
       <Footer />
-    </>
+    </div>
   );
 }

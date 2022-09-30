@@ -2,7 +2,7 @@ import { Box, Container, Grid, Link } from "@mui/material";
 
 export function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <Box
         px={{ xs: 3, sm: 10 }}
         py={{ xs: 3, sm: 10 }}

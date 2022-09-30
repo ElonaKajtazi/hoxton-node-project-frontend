@@ -30,29 +30,58 @@ a {
   all: unset;
 }
 
+
+.categories-page{
+  display: grid;
+  grid-template-areas: 
+  'h h h h h h h'
+  'c b b b b b b'
+  'f f f f f f f'
+  ;
+}
+
+.header{
+  grid-area: h;
+}
+
+.footer{
+  grid-area: f;
+}
 .categories{
   display: grid;
+  grid-area: c;
   grid-auto-flow: row;
-  grid-template-columns: auto auto auto;
   place-items: center;
-  padding: 5rem;
+  padding: 1rem 0rem;
   background-color: rgb(206, 206, 198);
 }
 
 
 .category{
-  padding: 2rem;
+  padding: 1rem;
 }
+
+
+.authors-page{
+  display: grid;
+  grid-template-areas: 
+  'h h h h h h h'
+  'a b b b b b b'
+  'f f f f f f f'
+  ;
+}
+
 
 .authors{
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto;
   place-items: center;
-  padding: 5rem;
+  padding: 1.5rem 0rem;
   background-color: rgb(206, 206, 198);
 }
 
 .author{
-  padding: 2rem;
+  padding: 1rem;
 }
+

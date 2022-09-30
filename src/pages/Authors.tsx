@@ -20,20 +20,23 @@ export function Authors({ currentUser }: Props) {
     getDatafromServer();
   }, []);
   return (
-    <>
+    <div className="authors-page">
       <Header currentUser={currentUser} />
       <div className="authors">
         {authors.map((author) => (
           <Link to={`/authors/${author.fullName}`} key={author.id}>
-            <div className="category" key={author.id}>
-              <Button size="large" variant="contained">
+            <div className="author" key={author.id}>
+              <Button size="small" variant="contained">
                 {author.fullName}
               </Button>
             </div>
           </Link>
         ))}
       </div>
+      <div className="authors-books">
+            
+            </div>
       <Footer />
-    </>
+    </div>
   );
 }
