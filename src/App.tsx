@@ -34,7 +34,7 @@ function App() {
         .then((resp) => resp.json())
         .then((data) => {
           if (data.errors) {
-            alert(data.errors);
+            setError(data.errors);
           } else {
             signIn(data);
           }

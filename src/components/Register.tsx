@@ -7,7 +7,7 @@ type Props = {
   setError: React.Dispatch<React.SetStateAction<string[] | null>>;
   error: string[] | null;
 };
-export function Register({ signIn, setError, error }:Props) {
+export function Register({ signIn, setError, error }: Props) {
   return (
     <div className="form-page">
       <form
@@ -28,13 +28,10 @@ export function Register({ signIn, setError, error }:Props) {
             .then((resp) => resp.json())
             .then((data) => {
               if (data.errors) {
-                // console.log(data.errors);
-                // alert(data.errors);
                 setError(data.errors);
-                console.log(error)
+                console.log(error);
               } else {
                 signIn(data);
-                
               }
             });
         }}
@@ -67,7 +64,7 @@ export function Register({ signIn, setError, error }:Props) {
             placeholder="Password"
           />
         </label>
-        {error ? <p className="error">{error}</p>: null}
+        {error ? <p className="error">{error}</p> : null}
 
         <Button variant="contained" size="small" type="submit">
           Register
