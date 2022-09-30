@@ -7,7 +7,7 @@ type Props = {
 export function BookCover({ book }: Props) {
   return (
     <Link to={`/books/${book.id}`} key={book.id}>
-      <div className="singleBook" key={book.id}>
+      <div className="singleBook">
         <img className="book-img" src={book.image} />
         <h3 className="book-title">{book.title}</h3>
       </div>

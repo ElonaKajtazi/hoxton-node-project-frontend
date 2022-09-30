@@ -8,9 +8,10 @@ type Props = {
   setError: React.Dispatch<React.SetStateAction<string[] | null>>;
   error: string[] | null;
   currentUser: User | null;
+  refreshPage : () => void
 };
 
-export function SingleBook({ setError, error, currentUser }: Props) {
+export function SingleBook({ setError, error, currentUser, refreshPage}: Props) {
   const [singleBook, setSingleBook] = useState<null | Book>(null);
   const params = useParams();
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
@@ -61,41 +62,39 @@ export function SingleBook({ setError, error, currentUser }: Props) {
                 ))}
               </select>
             </label>
-            {/* <Link to={(!currentUser) ? "/profile" : null} onClick={() => {}}> */}
-            <Button
-              color="secondary"
-              variant="contained"
-              size="small"
-              className="add-to-cart-btn"
-              onClick={() => {
-                fetch(`http://localhost:4444/cartItem`, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    Authorization: localStorage.token,
-                  },
-                  body: JSON.stringify({
-                    bookId: singleBook.id,
-                    quantity: quantity,
-                  }),
-                })
-                  .then((rsp) => rsp.json())
-                  .then((data) => {
-                    if (data.errors) {
-                      setError(data.errors);
-                    } else {
-                      setCartItem(data);
-                    }
-                  });
-              }}
-            >
-              Add to cart
-            </Button>
-            {error ? (
-              <p className="error">
-                {error} <Link to={"/profile"}>Login?</Link>{" "}
-              </p>
-            ) : null}
+            <Link to={(!currentUser) ? "/profile" : `/books/${singleBook.id}`}>
+              <Button
+                color="secondary"
+                variant="contained"
+                size="small"
+                className="add-to-cart-btn"
+                onClick={() => {
+                  fetch(`http://localhost:4444/cartItem`, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: localStorage.token,
+                    },
+                    body: JSON.stringify({
+                      bookId: singleBook.id,
+                      quantity: quantity,
+                    }),
+                  })
+                    .then((rsp) => rsp.json())
+                    .then((data) => {
+                      if (data.errors) {
+                        setError(data.errors);
+                      } else {
+                        setCartItem(data);
+                        refreshPage()
+                      }
+                    });
+                }}
+              >
+                Add to cart
+              </Button>
+            </Link>
+            {error ? <p className="error">{error} </p> : null}
             {/* </Link> */}
           </div>
         </section>

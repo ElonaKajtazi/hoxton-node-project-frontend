@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { CartItem } from "../types";
+import { CartItem, User } from "../types";
 
 type Props = {
   cartItems: CartItem[];
@@ -7,6 +7,7 @@ type Props = {
   refreshPage: () => void;
   error: string[] | null;
   setError: React.Dispatch<React.SetStateAction<string[] | null>>;
+  currentUser: User | null;
 };
 
 export function FullCart({
@@ -15,14 +16,16 @@ export function FullCart({
   refreshPage,
   error,
   setError,
+  currentUser,
 }: Props) {
   let total = 0;
   for (let item of cartItems) {
     total += item.quantity * item.book.price;
   }
+  if (!currentUser) return <h1>Loading..</h1>;
   return (
     <section className="basket-container">
-      <h2>Your Cart</h2>
+      <h2> {currentUser.name}'s Cart</h2>
       <ul>
         {cartItems.map((cartItem) => (
           <li key={cartItem.id}>
@@ -77,9 +80,12 @@ export function FullCart({
             })
               .then((rsp) => rsp.json())
               .then((data) => {
-                if (data.errors) setError(data.errors);
+                if (data.errors) {
+                  setError(data.errors);
+                } else {
+                  refreshPage();
+                }
               });
-            setCartItems([]);
           }}
         >
           Buy

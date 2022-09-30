@@ -7,7 +7,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/home";
 import { Categories } from "./pages/Categories";
 import { SingleBook } from "./pages/singleBook";
 import { PageNotFound } from "./pages/NotFound";
@@ -21,7 +21,9 @@ import { Authors } from "./pages/Authors";
 function App() {
   const [currentUser, setCurrentUser] = useState<null | User>(null);
   const [error, setError] = useState<null | Array<string>>(null);
-
+  const refreshPage = () => {
+    window.location.reload();
+  };
   useEffect(() => {
     if (localStorage.token) {
       fetch("http://localhost:4444/validate", {
@@ -55,12 +57,19 @@ function App() {
         <Routes>
           <Route index element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home currentUser={currentUser} />} />
-          <Route path="/categories" element={<Categories currentUser={currentUser}/>} />
-          <Route path="/authors" element={<Authors currentUser={currentUser}/>} />
+          <Route
+            path="/categories"
+            element={<Categories currentUser={currentUser} />}
+          />
+          <Route
+            path="/authors"
+            element={<Authors currentUser={currentUser} />}
+          />
           <Route
             path="/books/:id"
             element={
               <SingleBook
+                refreshPage={refreshPage}
                 setError={setError}
                 error={error}
                 currentUser={currentUser}
@@ -71,6 +80,7 @@ function App() {
             path="/cart"
             element={
               <Cart
+                refreshPage={refreshPage}
                 currentUser={currentUser}
                 setError={setError}
                 error={error}
@@ -81,6 +91,7 @@ function App() {
             path="/books/:id"
             element={
               <SingleBook
+                refreshPage={refreshPage}
                 error={error}
                 setError={setError}
                 currentUser={currentUser}
@@ -91,6 +102,7 @@ function App() {
             path="/cart"
             element={
               <Cart
+                refreshPage={refreshPage}
                 currentUser={currentUser}
                 error={error}
                 setError={setError}
@@ -104,7 +116,12 @@ function App() {
               currentUser ? (
                 <ProfilePage currentUser={currentUser} signOut={signOut} />
               ) : (
-                <UserPage signIn={signIn} error={error} setError={setError} currentUser={currentUser} />
+                <UserPage
+                  signIn={signIn}
+                  error={error}
+                  setError={setError}
+                  currentUser={currentUser}
+                />
               )
             }
           />

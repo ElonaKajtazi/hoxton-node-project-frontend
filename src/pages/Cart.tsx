@@ -8,8 +8,9 @@ type Props = {
   currentUser: null | User;
   error: null | string[];
   setError: React.Dispatch<React.SetStateAction<string[] | null>>;
+  refreshPage: () => void
 };
-export function Cart({ currentUser, error, setError }: Props) {
+export function Cart({ currentUser, error, setError, refreshPage}: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
@@ -25,17 +26,16 @@ export function Cart({ currentUser, error, setError }: Props) {
     return (
       <>
         <NavBar currentUser={currentUser} />
-        <EmptyCart />
+        <EmptyCart currentUser={currentUser} />
       </>
     );
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
+  
   return (
     <>
       <NavBar currentUser={currentUser} />
       <FullCart
+        currentUser={currentUser}
         setError={setError}
         cartItems={cartItems}
         refreshPage={refreshPage}

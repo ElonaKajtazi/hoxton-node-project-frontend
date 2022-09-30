@@ -1,9 +1,14 @@
 import { Button } from "@mui/material";
+import { User } from "../types";
+type Props = {
+  currentUser: User | null;
+};
+export function EmptyCart({ currentUser }: Props) {
+  if (!currentUser) return <h1>Loading..</h1>;
 
-export function EmptyCart() {
   return (
     <section className="basket-container">
-      <h2>Your Cart</h2>
+      <h2>{currentUser.name}'s Cart</h2>
       <ul>
         <article className="basket-container__item">
           Your cart is empty!
