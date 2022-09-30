@@ -31,7 +31,7 @@ export function Categories({ currentUser }: Props) {
             className="category"
             key={category.id}
             onClick={() => {
-              fetch(`http://localhost:4444/booksForCategory/${category.id}`)
+              fetch(`http://localhost:4444/booksPerCategory/${category.id}`)
                 .then((rsp) => rsp.json())
                 .then((data) => setCategoryBooks(data));
             }}
