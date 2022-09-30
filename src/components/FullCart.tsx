@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import { CartItem, User } from "../types";
 
 type Props = {
@@ -30,11 +31,13 @@ export function FullCart({
         {cartItems.map((cartItem) => (
           <li key={cartItem.id}>
             <article className="basket-container__item">
-              <img
-                className="cart-image"
-                src={cartItem.book.image}
-                alt={cartItem.book.title}
-              />
+              <Link to={`/books/${cartItem.bookId}`}>
+                <img
+                  className="cart-image"
+                  src={cartItem.book.image}
+                  alt={cartItem.book.title}
+                />
+              </Link>
               <div className="book-info">
                 <p>{cartItem.book.title}</p>
                 <p>{cartItem.book.author.fullName}</p>

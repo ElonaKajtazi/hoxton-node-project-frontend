@@ -32,12 +32,12 @@ export function Footer() {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Account</Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/profile" color="inherit">
                   Login
                 </Link>
               </Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/profile" color="inherit">
                   Register
                 </Link>
               </Box>
