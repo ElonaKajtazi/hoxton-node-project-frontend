@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { Book } from "../types";
+type Props = {
+  book: Book;
+};
 
-export function BookCover({ book }) {
+export function BookCover({ book }: Props) {
   return (
     <Link to={`/books/${book.id}`} key={book.id}>
       <div className="singleBook" key={book.id}>
