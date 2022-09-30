@@ -5,6 +5,7 @@
     place-content: center;
     padding: 1rem;
     background-color: rgba(128, 128, 128, 0.097)
+    
 }
 .single-book__details {
   display: grid;

@@ -15,6 +15,11 @@
   /* text-align: center; */
   /* display: grid;
   min-height: 100vh; */
+  
+}
+
+.App a{
+  cursor: pointer;
 }
 
 .home-main {
@@ -23,7 +28,7 @@
   grid-auto-flow: row;
   grid-template-columns: auto auto auto;
   place-items: center;
-  padding: 6rem;
+  padding: 3rem;
 }
 
 a {
@@ -91,4 +96,49 @@ a {
 
 .author {
   padding: 1rem;
+}
+
+
+.book-img{
+  width: 12rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.book-img:hover{
+  width: 12.5rem;
+}
+.categories-books{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto;
+  align-items: flex-start;
+}
+
+.authors-books{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto;
+  align-items: flex-start;
+}
+.book{
+  display: grid;
+place-content: center;
+  transition: all 0.3s ease-in-out;
+}
+.book-title{
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  padding-top: 10px;
+  color: rgb(103, 100, 100) ;
+  transition: all 0.3s ease-in-out;
+}
+
+.book-title:hover {
+
+ color: rgb(25, 118, 210);
+}
+
+.singleBook{
+  padding-top: 2rem;
 }
