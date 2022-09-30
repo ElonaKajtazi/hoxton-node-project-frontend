@@ -30,24 +30,22 @@ a {
   all: unset;
 }
 
-
-.categories-page{
+.categories-page {
   display: grid;
-  grid-template-areas: 
-  'h h h h h h h'
-  'c b b b b b b'
-  'f f f f f f f'
-  ;
+  grid-template-areas:
+    "h h h h h h h"
+    "c b b b b b b"
+    "f f f f f f f";
 }
 
-.header{
+.header {
   grid-area: h;
 }
 
-.footer{
+.footer {
   grid-area: f;
 }
-.categories{
+.categories {
   display: grid;
   grid-area: c;
   grid-auto-flow: row;
@@ -62,24 +60,27 @@ a {
   place-items: center;
   padding: 6rem;
 }
+.authors-books {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+  padding: 6rem;
+}
 
-
-.category{
+.category {
   padding: 1rem;
 }
 
-
-.authors-page{
+.authors-page {
   display: grid;
-  grid-template-areas: 
-  'h h h h h h h'
-  'a b b b b b b'
-  'f f f f f f f'
-  ;
+  grid-template-areas:
+    "h h h h h h h"
+    "a b b b b b b"
+    "f f f f f f f";
 }
 
-
-.authors{
+.authors {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: auto;
@@ -88,7 +89,6 @@ a {
   background-color: rgb(206, 206, 198);
 }
 
-.author{
+.author {
   padding: 1rem;
 }
-
