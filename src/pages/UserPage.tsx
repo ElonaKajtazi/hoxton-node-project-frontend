@@ -8,8 +8,17 @@ type Props = {
   error: string[] | null;
   setError: React.Dispatch<React.SetStateAction<string[] | null>>;
   currentUser: User | null;
+  togglePassword: boolean;
+  setTogglePassword: React.Dispatch<React.SetStateAction<boolean>>;
 };
-export function UserPage({ signIn, error, setError, currentUser }: Props) {
+export function UserPage({
+  signIn,
+  error,
+  setError,
+  currentUser,
+  togglePassword,
+  setTogglePassword,
+}: Props) {
   const [page, setPage] = useState(0);
 
   return (
@@ -21,10 +30,18 @@ export function UserPage({ signIn, error, setError, currentUser }: Props) {
           setPage={setPage}
           error={error}
           setError={setError}
+          togglePassword={togglePassword}
+          setTogglePassword={setTogglePassword}
         />
       ) : null}
       {page === 1 ? (
-        <Register signIn={signIn} error={error} setError={setError} />
+        <Register
+          signIn={signIn}
+          error={error}
+          setError={setError}
+          setTogglePassword={setTogglePassword}
+          togglePassword={togglePassword}
+        />
       ) : null}
     </>
   );

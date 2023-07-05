@@ -7,7 +7,6 @@
   background-image: url(https://i.pinimg.com/736x/41/71/44/4171449ab62bcdc64872ed4b0b9edf64.jpg);
   background-size: cover;
   /* background-repeat: no-repeat; */
-
 }
 .form {
   display: grid;
@@ -27,6 +26,15 @@ label {
   gap: 0.5rem;
   text-align: left;
 }
+.password-inputs {
+  /* background-color: white; */
+  display: grid;
+  grid-auto-flow: row;
+  place-items: start;
+  /* border-top: 1px solid black; */
+  
+
+}
 .text-input {
   padding: 0.5rem;
   border-radius: 5px;
@@ -35,11 +43,27 @@ label {
 
   outline: none;
 }
+
+.password-checkbox-container{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.3rem;
+  /* place-content: center; */
+  /* place-items: center; */
+  align-items: center;
+}
+.password-checkbox-container p{
+margin-bottom: 5px;
+}
+.password-toggle-checkbox {
+  color: #1976d2;
+  width: 23px;
+}
 .text-input:focus {
   border: 2px solid #1976d2;
 }
 button {
-    all: unset;
+  all: unset;
 }
 .error {
   color: rgb(191, 0, 0);

@@ -21,9 +21,12 @@ import { Authors } from "./pages/Authors";
 function App() {
   const [currentUser, setCurrentUser] = useState<null | User>(null);
   const [error, setError] = useState<null | Array<string>>(null);
+  const [togglePassword, setTogglePassword] = useState<boolean>(true);
+
   const refreshPage = () => {
     window.location.reload();
   };
+
   useEffect(() => {
     if (localStorage.token) {
       fetch("http://localhost:4444/validate", {
@@ -121,6 +124,8 @@ function App() {
                   error={error}
                   setError={setError}
                   currentUser={currentUser}
+                  togglePassword={togglePassword}
+                  setTogglePassword={setTogglePassword}
                 />
               )
             }

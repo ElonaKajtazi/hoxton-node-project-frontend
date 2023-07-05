@@ -1,14 +1,26 @@
 import "../styles/form.css";
 import { Button } from "@mui/material";
 import { Data } from "../types";
+import { useState } from "react";
+import { TogglePasswordVisibility } from "./TogglePassswordVisibility";
 
 type Props = {
   signIn: (data: Data) => void;
   setPage: React.Dispatch<React.SetStateAction<number>>;
   setError: React.Dispatch<React.SetStateAction<string[] | null>>;
+  togglePassword: boolean;
+  setTogglePassword: React.Dispatch<React.SetStateAction<boolean>>;
   error: string[] | null;
 };
-export function LogIn({ signIn, setPage, setError, error }: Props) {
+export function LogIn({
+  signIn,
+  setPage,
+  setError,
+  error,
+  togglePassword,
+  setTogglePassword,
+}: Props) {
+  // const [togglePassword, setTogglePassword] = useState<boolean>(true);
   return (
     <div className="form-page">
       <form
@@ -45,13 +57,32 @@ export function LogIn({ signIn, setPage, setError, error }: Props) {
             required
           />
         </label>
-        <label>
+        <label className="password-inputs">
           <input
-            className="text-input"
-            type="password"
+            className="text-input password-input"
+            type={togglePassword ? "password" : "text"}
             name="password"
             placeholder="Password"
             required
+          />
+          {/* <div className="password-checkbox-container">
+
+          <input
+          className="password-toggle-checkbox"
+            type="checkbox"
+            onClick={() => {
+              if (togglePassword) {
+                setTogglePassword(false);
+              } else {
+                setTogglePassword(true);
+              }
+            }}
+          />
+          <p>Show password</p>
+          </div> */}
+          <TogglePasswordVisibility
+            togglePassword={togglePassword}
+            setTogglePassword={setTogglePassword}
           />
         </label>
         <Button variant="contained" size="small" type="submit">

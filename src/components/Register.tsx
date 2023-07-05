@@ -1,13 +1,16 @@
 import { Data } from "../types";
 import "../styles/form.css";
 import { Button } from "@mui/material";
+import { TogglePasswordVisibility } from "./TogglePassswordVisibility";
 
 type Props = {
   signIn: (data: Data) => void;
   setError: React.Dispatch<React.SetStateAction<string[] | null>>;
   error: string[] | null;
+  togglePassword: boolean;
+  setTogglePassword: React.Dispatch<React.SetStateAction<boolean>>;
 };
-export function Register({ signIn, setError, error }: Props) {
+export function Register({ signIn, setError, error, togglePassword, setTogglePassword }: Props) {
   return (
     <div className="form-page">
       <form
@@ -55,7 +58,7 @@ export function Register({ signIn, setError, error }: Props) {
             placeholder="Email"
           />
         </label>
-        <label>
+        <label className="password-inputs">
           <input
             className="text-input"
             type="password"
@@ -63,6 +66,7 @@ export function Register({ signIn, setError, error }: Props) {
             required
             placeholder="Password"
           />
+          <TogglePasswordVisibility setTogglePassword={setTogglePassword} togglePassword={togglePassword}/>
         </label>
         {error ? <p className="error">{error}</p> : null}
 
